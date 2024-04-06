@@ -1,18 +1,16 @@
 function calcAverageCalories(days) {
-  if (days.length > 7) {
-    console.log('There are 7 days in a week. Please enter correctly!');
+  let sum = 0;
+
+  for (const day of days) {
+    sum += day.calories;
+  }
+
+  if (days.length > 0 && days.length <= 7) {
+    return Math.trunc(sum / days.length);
+  } else if (days.length === 0) {
+    return 0;
   } else {
-    let sum = 0;
-
-    for (const day of days) {
-      sum += day.calories;
-    }
-
-    if (days.length > 0) {
-      return Math.trunc(sum / days.length);
-    } else {
-      return 0;
-    }
+    return 'There are 7 days in a week. Please enter correctly!';
   }
 }
 
